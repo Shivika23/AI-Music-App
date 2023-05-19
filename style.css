@@ -1,0 +1,48 @@
+body {
+    background-position: center;
+    background-size: cover;
+}
+
+.heading {
+    font-size: 30px;
+    width: 100%;
+    font-family: fantasy;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+.note {
+    font-size: 25px;
+    color: black;
+}
+
+img {
+    width: 380px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.song_one {
+    float: right;
+    margin-right: 150px;
+    margin-top: 75px;
+}
+
+.song_two {
+    float: left;
+    margin-left: 150px;
+    margin-top: 75px;
+}
+
+#song_name,#s_n {
+    font-size: 25px;
+    font-family: cursive;
+}
+
+canvas{
+    border-width:1px;
+    border-color: white;
+    border-style: solid;
+    margin-top: 80px;
+    border-radius: 10px;
+}
