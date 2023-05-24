@@ -1,5 +1,11 @@
-song_one= ""
-song_two= ""
+song_one = ""
+song_two = ""
+
+song_one_status = ""
+song_two_status = ""
+
+score_right = 0;
+score_left = 0;
 
 rwrist_x = 0;
 rwrist_y = 0;
@@ -36,9 +42,40 @@ function gotPoses(results) {
 
         rwrist_y = results[0].pose.rightWrist.y
         rwrist_x = results[0].pose.rightWrist.x
+
+        score_right = results[0].pose.keypoints[10].score
+        score_left = results[0].pose.keypoints[9].score
     }
 }
 
 function draw() {
     image(camera, 0, 0, 500, 400)
+
+    fill("red")
+    stroke("red")
+
+    song_one_status = song_one.isPlaying()
+    song_two_status = song_two.isPlaying()
+
+    if (score_right > 0.2) {
+        circle(rwrist_x, rwrist_y, 20)
+        song_one.stop()
+
+        if (song_two_status == false) {
+            song_two.play()
+            document.getElementById("song_name").innerHTML= "Playing Believer by Imagine Dragons......"
+
+        }
+    }
+
+    if (score_left > 0.2) {
+        circle(lwrist_x, lwrist_y, 20)
+        song_two.stop()
+
+        if (song_one_status == false) {
+            song_one.play()
+            document.getElementById("song_name").innerHTML= "Playing Shape of You by Ed Sheeran......"
+
+        }
+    }
 }
